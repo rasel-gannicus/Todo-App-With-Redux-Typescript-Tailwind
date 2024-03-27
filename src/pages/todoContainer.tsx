@@ -1,26 +1,29 @@
-
+import AddTodoModal from "@/components/AddTodoModal";
+import DeleteButton from "@/components/ui/DeleteButton";
+import EditButton from "@/components/ui/EditButton";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import TodoCard from "./todoCard";
 
 const TodoContainer = () => {
-    return (
-        <div>
-            <div className="my-5">
-                <button className="border-2 px-4 me-3 rounded-sm py-2">Add Todo</button>
-                <button className="border-2 px-4 me-3 rounded-sm py-2">Filter</button>
-            </div>
-            <div>
-                <div className="flex justify-between bg-white px-4 mx-4 rounded-sm py-4 font-semibold text-slate-600 ">
-                    <input type="radio" name="" id="" />
-                    <p>Todo title</p>
-                    <p>Time</p>
-                    <p>Description</p>
-                    <div className="">
-                        <button className="border-2  px-3 rounded-sm mx-1 hover:bg-slate-400 hover:text-white">Delete</button>
-                        <button className="border-2  px-3 rounded-sm mx-1 hover:bg-slate-400 hover:text-white">Edit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+  return (
+    <div>
+      <div className="my-5 ">
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button className="mx-2" variant="outline">
+              Add Todo
+            </Button>
+          </DialogTrigger>
+          <AddTodoModal />
+        </Dialog>
+        <button className="border-2 px-4 me-3 rounded-sm py-2">Filter</button>
+      </div>
+      <div>
+        <TodoCard />
+      </div>
+    </div>
+  );
 };
 
 export default TodoContainer;
