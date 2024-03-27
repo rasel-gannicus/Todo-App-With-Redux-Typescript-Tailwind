@@ -10,10 +10,10 @@ const TodoCard = () => {
       <p>Time</p>
       <p>Description</p>
       <div className="">
-        <Button className="mx-1">
+        <Button className="mx-1 hover:bg-red-600">
           <DeleteButton />
         </Button>
-        <Button className="">
+        <Button className=" hover:bg-teal-800">
           <EditButton />
         </Button>
       </div>
