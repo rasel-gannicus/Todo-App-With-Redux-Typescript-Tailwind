@@ -4,8 +4,10 @@ import EditButton from "@/components/ui/EditButton";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import TodoCard from "./todoCard";
+import { useAppSelector } from "@/Redux/hook";
 
 const TodoContainer = () => {
+  const todos = useAppSelector(state => state.todo.todos);
   return (
     <div>
       <div className="my-5 ">
@@ -20,7 +22,9 @@ const TodoContainer = () => {
         <button className="border-2 px-4 me-3 rounded-sm py-2">Filter</button>
       </div>
       <div>
-        <TodoCard />
+        {
+          todos.map(todo=><TodoCard {...todo} />)
+        }
       </div>
     </div>
   );

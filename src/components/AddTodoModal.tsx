@@ -23,6 +23,8 @@ const AddTodoModal = () => {
 
   const handleSubmit = (e: FormData) => {
     e.preventDefault();
+    setTitle(e.target.title.value);
+    setDesc(e.target.desc.value);
     console.log({title, desc});
     dispatch(addTodo({title, description:desc}))
   };
@@ -43,6 +45,7 @@ const AddTodoModal = () => {
           <Input
             onBlur={(e) => setTitle(e.target.value)}
             id="title"
+            name = "title"
             className="col-span-3"
           />
         </div>
@@ -51,8 +54,9 @@ const AddTodoModal = () => {
             Description
           </Label>
           <Input
-            onBlur={(e) => setDesc(e.target.value)}
+            onChange={(e) => setDesc(e.target.value)}
             id="desc"
+            name = 'desc'
             className="col-span-3"
           />
         </div>
