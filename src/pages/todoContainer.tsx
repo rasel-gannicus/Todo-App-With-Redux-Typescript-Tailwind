@@ -34,7 +34,7 @@ const TodoContainer = () => {
           <AddTodoModal />
         </Dialog>
 
-        {/* --- Dropdown Menu For Filter --- */}
+        {/* --- Dropdown Menu For Filter start --- */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline">Filter</Button>
@@ -55,11 +55,12 @@ const TodoContainer = () => {
             </DropdownMenuRadioGroup>
           </DropdownMenuContent>
         </DropdownMenu>
-        <button className="border-2 px-4 me-3 rounded-sm py-2">Filter</button>
+        {/* --- Dropdown Menu For Filter end --- */}
+
       </div>
       <div>
         {todos.map((todo) => (
-          <TodoCard {...todo} />
+          <TodoCard key={todo.id} {...todo} />
         ))}
       </div>
     </div>
