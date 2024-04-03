@@ -73,6 +73,7 @@ module.exports = {
       },
       backgroundImage : {
         'primary-gradient' : "linear-gradient(90deg,#133A94, #919BFF)",
+        'nonCompletedTask' : "flex justify-between items-center bg-white px-4 mx-4 mt-3 rounded-sm py-4 font-semibold text-slate-700  border-4 border-slate-400-700"
       }
     },
   },

@@ -1,13 +1,19 @@
+import { toggleTodo } from "@/Redux/features/todo/todo";
+import { useAppDispatch } from "@/Redux/hook";
 import DeleteButton from "@/components/ui/DeleteButton";
 import EditButton from "@/components/ui/EditButton";
 import { Button } from "@/components/ui/button";
 
 const TodoCard = ({...todo}) => {
 
-  console.log(todo);
+  const dispatch = useAppDispatch()
+
+  function handleComplete(id : string){
+    dispatch(toggleTodo(id))
+  }
   return (
-    <div className="flex justify-between items-center bg-white px-4 mx-4 rounded-sm py-4 font-semibold text-slate-700  border-4 border-slate-400-700">
-      <input type="checkbox" checked={todo.isCompleted} className="default:ring-8" />
+    <div className={`flex justify-between items-center ${!todo.isCompleted ? 'bg-white' : 'bg-slate-400'} px-4 mx-4 mt-3 rounded-sm py-4 font-semibold text-slate-700  border-4 border-slate-400-700`}>
+      <input onClick={() => handleComplete(todo.id)} type="checkbox" checked={todo.isCompleted} className="default:ring-8" />
       <p>{todo.title || 'Title'}</p>
       <p>{todo.priority.toUpperCase()}</p>
       <p>{todo.description || 'Description'}</p> 

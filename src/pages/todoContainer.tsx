@@ -23,7 +23,7 @@ const TodoContainer = () => {
   const [filter, setFilter] = useState("mid")
 
   return (
-    <div>
+    <div className="pb-4">
       <div className="my-5 ">
         <Dialog>
           <DialogTrigger asChild>

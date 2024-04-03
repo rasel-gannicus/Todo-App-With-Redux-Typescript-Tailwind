@@ -47,7 +47,6 @@ const AddTodoModal = () => {
     e.preventDefault();
     setTitle(e.target.title.value);
     setDesc(e.target.desc.value);
-    console.log({ title, desc, priority });
     dispatch(addTodo({ title, description: desc, priority, id : generateRandomString(10) }));
   };
 
